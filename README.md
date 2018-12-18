@@ -5,7 +5,7 @@ A Spring Boot REST API to register books and movies.
 ### Requirements
 
 - JDK 8+
-- Gradlew 5.0+ (You can use Gradle Wrapper)
+- Gradle 5.0+ (You can use Gradle Wrapper)
 
 ### How to run?
 
@@ -53,7 +53,7 @@ This project was built with the following stack of technologies:
 - PostgreSQL
 - Jackson
 - Lombok
-- Spring Boot (Actuator, Data JPA, , Security, Tests, Web)
+- Spring Boot (Actuator, Data JPA, Security, Tests, Web)
 - Swagger
 
 ### License
