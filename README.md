@@ -1,4 +1,4 @@
-# bankslips-api
+# my-collections-api
 
 A Spring Boot REST API to register books and movies.
 
