@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: bankslips-api
+
+  datasource:
+    url: ${MY_COLLECTIONS_DB_URL}
+    username: ${MY_COLLECTIONS_DB_USERNAME}
+    password: ${MY_COLLECTIONS_DB_USERNAME}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+        show_sql: true
+        use-sql-comments: true
+        format_sql: true
