@@ -21,11 +21,11 @@ You also can run this project just with Gradle:
 
 - For UNIX-based systems
 
-```./gradlew spring-boot:run```
+```./gradlew bootRun```
 
 - For Windows
 
-```gradlew spring-boot:run```
+```gradlew bootRun```
 
 #### Test
 
