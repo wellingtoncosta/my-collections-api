@@ -15,7 +15,13 @@ import static javax.persistence.GenerationType.SEQUENCE;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "tb_user")
+@Table(
+        name = "tb_user",
+        uniqueConstraints = @UniqueConstraint(
+                name = "email_unique",
+                columnNames = "email"
+        )
+)
 public class UserEntity {
 
     @Id
