@@ -11,7 +11,7 @@ A Spring Boot REST API to register books and movies.
 
 #### Development
 
-First, you need to clone this git repository:
+First, you need to clone this git bookRepository:
 
 ```git clone https://github.com/WellingtonCosta/my-collections-api.git```
 

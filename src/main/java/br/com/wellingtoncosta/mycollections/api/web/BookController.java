@@ -33,7 +33,6 @@ public class BookController {
         if(isNull(book)) {
             return ResponseEntity.badRequest().build();
         }
-
         return ResponseEntity.status(CREATED).body(service.save(book));
     }
 
@@ -64,6 +63,17 @@ public class BookController {
     @GetMapping(produces = APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<List<Book>> findAll() {
         List<Book> books = service.findAll();
+        if(books.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.ok(books);
+        }
+    }
+
+    @ApiOperation(value = "List all movies by its owner.")
+    @GetMapping(value= "/owner/{ownerId}", produces = APPLICATION_JSON_UTF8_VALUE)
+    public ResponseEntity<List<Book>> findAllByOwner(@PathVariable("ownerId") Long ownerId) {
+        List<Book> books = service.findAllByOwner(ownerId);
         if(books.isEmpty()) {
             return ResponseEntity.noContent().build();
         } else {

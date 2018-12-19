@@ -18,6 +18,9 @@ repositories {
 }
 
 dependencies {
+    // JSON Web Token
+    implementation("io.jsonwebtoken:jjwt:0.9.1")
+
     // Lombok
     compileOnly("org.projectlombok:lombok:1.18.4")
     annotationProcessor("org.projectlombok:lombok:1.18.4")
@@ -28,6 +31,7 @@ dependencies {
     // Spring
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    implementation("org.springframework.boot:spring-boot-starter-security")
 
     // Swagger
     implementation("io.springfox:springfox-swagger2:2.9.2")

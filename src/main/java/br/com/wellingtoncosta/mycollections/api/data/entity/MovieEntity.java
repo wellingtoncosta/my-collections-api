@@ -38,4 +38,8 @@ public class MovieEntity {
     @Column(name = "favorite", nullable = false)
     private boolean favorite;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id", nullable = false)
+    private UserEntity owner;
+
 }

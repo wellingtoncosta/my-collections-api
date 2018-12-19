@@ -1,3 +1,6 @@
+server:
+  port: 8090
+
 spring:
   application:
     name: bankslips-api
@@ -5,7 +8,7 @@ spring:
   datasource:
     url: ${MY_COLLECTIONS_DB_URL}
     username: ${MY_COLLECTIONS_DB_USERNAME}
-    password: ${MY_COLLECTIONS_DB_USERNAME}
+    password: ${MY_COLLECTIONS_DB_PASSWORD}
     driver-class-name: org.postgresql.Driver
 
   jpa:

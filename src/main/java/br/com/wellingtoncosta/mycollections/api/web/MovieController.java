@@ -1,5 +1,6 @@
 package br.com.wellingtoncosta.mycollections.api.web;
 
+import br.com.wellingtoncosta.mycollections.api.domain.model.Book;
 import br.com.wellingtoncosta.mycollections.api.domain.model.Movie;
 import br.com.wellingtoncosta.mycollections.api.domain.service.MovieService;
 import io.swagger.annotations.ApiOperation;
@@ -33,7 +34,6 @@ public class MovieController {
         if(isNull(movie)) {
             return ResponseEntity.badRequest().build();
         }
-
         return ResponseEntity.status(CREATED).body(service.save(movie));
     }
 
@@ -63,11 +63,22 @@ public class MovieController {
     @ApiOperation(value = "List all movies.")
     @GetMapping(produces = APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<List<Movie>> findAll() {
-        List<Movie> movie = service.findAll();
-        if(movie.isEmpty()) {
+        List<Movie> movies = service.findAll();
+        if(movies.isEmpty()) {
             return ResponseEntity.noContent().build();
         } else {
-            return ResponseEntity.ok(movie);
+            return ResponseEntity.ok(movies);
+        }
+    }
+
+    @ApiOperation(value = "List all movies by its owner.")
+    @GetMapping(value= "/owner/{ownerId}", produces = APPLICATION_JSON_UTF8_VALUE)
+    public ResponseEntity<List<Movie>> findAllByOwner(@PathVariable("ownerId") Long ownerId) {
+        List<Movie> movies = service.findAllByOwner(ownerId);
+        if(movies.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.ok(movies);
         }
     }
 
