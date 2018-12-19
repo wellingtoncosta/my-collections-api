@@ -1,4 +1,4 @@
-package br.com.wellingtoncosta.mycollections.api.web;
+package br.com.wellingtoncosta.mycollections.api.web.controller;
 
 import br.com.wellingtoncosta.mycollections.api.domain.model.User;
 import br.com.wellingtoncosta.mycollections.api.domain.service.UserService;

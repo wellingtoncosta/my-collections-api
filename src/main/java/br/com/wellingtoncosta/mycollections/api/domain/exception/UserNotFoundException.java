@@ -7,11 +7,10 @@ import static org.springframework.http.HttpStatus.NOT_FOUND;
 /**
  * @author Wellington Costa on 18/12/2018.
  */
-@ResponseStatus(NOT_FOUND)
-public class UserNotFoundException extends RuntimeException {
+@ResponseStatus(NOT_FOUND) public class UserNotFoundException extends RuntimeException {
 
-    public UserNotFoundException(String username) {
-        super("The user with username " + username + " was not found");
+    public UserNotFoundException(String email) {
+        super("The user with email " + email + " was not found");
     }
 
     public UserNotFoundException(Long id) {

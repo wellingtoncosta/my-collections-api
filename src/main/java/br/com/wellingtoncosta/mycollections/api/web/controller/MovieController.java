@@ -1,7 +1,8 @@
-package br.com.wellingtoncosta.mycollections.api.web;
+package br.com.wellingtoncosta.mycollections.api.web.controller;
 
 import br.com.wellingtoncosta.mycollections.api.domain.model.Book;
-import br.com.wellingtoncosta.mycollections.api.domain.service.BookService;
+import br.com.wellingtoncosta.mycollections.api.domain.model.Movie;
+import br.com.wellingtoncosta.mycollections.api.domain.service.MovieService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,72 +19,72 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_UTF8_VALUE;
  * @author Wellington Costa on 18/12/2018.
  */
 @RestController
-@RequestMapping("api/books")
-public class BookController {
+@RequestMapping("api/movies")
+public class MovieController {
 
-    private final BookService service;
+    private final MovieService service;
 
-    @Autowired public BookController(BookService service) {
+    @Autowired public MovieController(MovieService service) {
         this.service = service;
     }
 
-    @ApiOperation(value = "Save a new book.")
+    @ApiOperation(value = "Save a new movie.")
     @PostMapping(consumes = APPLICATION_JSON_UTF8_VALUE, produces = APPLICATION_JSON_UTF8_VALUE)
-    public ResponseEntity<Book> save(@Valid @RequestBody Book book) {
-        if(isNull(book)) {
+    public ResponseEntity<Movie> save(@Valid @RequestBody Movie movie) {
+        if(isNull(movie)) {
             return ResponseEntity.badRequest().build();
         }
-        return ResponseEntity.status(CREATED).body(service.save(book));
+        return ResponseEntity.status(CREATED).body(service.save(movie));
     }
 
-    @ApiOperation(value = "Update a specific book by id.")
+    @ApiOperation(value = "Update a specific movie by id.")
     @PutMapping(
             value= "/{id}",
             consumes = APPLICATION_JSON_UTF8_VALUE,
             produces = APPLICATION_JSON_UTF8_VALUE
     )
-    public ResponseEntity<Book> update(
+    public ResponseEntity<Movie> update(
             @PathVariable("id") Long id,
-            @Valid @RequestBody Book book
+            @Valid @RequestBody Movie movie
     ) {
-        if(isNull(book)) {
+        if(isNull(movie)) {
             return ResponseEntity.badRequest().build();
         }
-        return ResponseEntity.status(OK).body(service.update(id, book));
+        return ResponseEntity.status(OK).body(service.update(id, movie));
     }
 
-    @ApiOperation(value = "Delete a book by id.")
+    @ApiOperation(value = "Delete a movie by id.")
     @DeleteMapping(value= "/{id}")
     public ResponseEntity delete(@PathVariable("id") Long id) {
         service.delete(id);
         return ResponseEntity.status(NO_CONTENT).build();
     }
 
-    @ApiOperation(value = "List all books.")
+    @ApiOperation(value = "List all movies.")
     @GetMapping(produces = APPLICATION_JSON_UTF8_VALUE)
-    public ResponseEntity<List<Book>> findAll() {
-        List<Book> books = service.findAll();
-        if(books.isEmpty()) {
+    public ResponseEntity<List<Movie>> findAll() {
+        List<Movie> movies = service.findAll();
+        if(movies.isEmpty()) {
             return ResponseEntity.noContent().build();
         } else {
-            return ResponseEntity.ok(books);
+            return ResponseEntity.ok(movies);
         }
     }
 
     @ApiOperation(value = "List all movies by its owner.")
     @GetMapping(value= "/owner/{ownerId}", produces = APPLICATION_JSON_UTF8_VALUE)
-    public ResponseEntity<List<Book>> findAllByOwner(@PathVariable("ownerId") Long ownerId) {
-        List<Book> books = service.findAllByOwner(ownerId);
-        if(books.isEmpty()) {
+    public ResponseEntity<List<Movie>> findAllByOwner(@PathVariable("ownerId") Long ownerId) {
+        List<Movie> movies = service.findAllByOwner(ownerId);
+        if(movies.isEmpty()) {
             return ResponseEntity.noContent().build();
         } else {
-            return ResponseEntity.ok(books);
+            return ResponseEntity.ok(movies);
         }
     }
 
-    @ApiOperation(value = "Find a specific book by id.")
+    @ApiOperation(value = "Find a specific movie by id.")
     @GetMapping(value= "/{id}", produces = APPLICATION_JSON_UTF8_VALUE)
-    public ResponseEntity<Book> findById(@PathVariable("id") Long id) {
+    public ResponseEntity<Movie> findById(@PathVariable("id") Long id) {
         return ResponseEntity.ok(service.findById(id));
     }
 

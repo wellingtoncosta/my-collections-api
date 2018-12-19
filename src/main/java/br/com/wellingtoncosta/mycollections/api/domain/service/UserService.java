@@ -1,6 +1,5 @@
 package br.com.wellingtoncosta.mycollections.api.domain.service;
 
-import br.com.wellingtoncosta.mycollections.api.domain.model.Credentials;
 import br.com.wellingtoncosta.mycollections.api.domain.model.User;
 
 /**
@@ -8,8 +7,8 @@ import br.com.wellingtoncosta.mycollections.api.domain.model.User;
  */
 public interface UserService {
 
-    User save(User user);
+    User findByEmail(String email);
 
-    User authenticate(Credentials credentials);
+    User save(User user);
 
 }
