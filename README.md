@@ -1,11 +1,11 @@
-# bankslips-api
+# my-collections-api
 
 A Spring Boot REST API to register books and movies.
 
 ### Requirements
 
 - JDK 8+
-- Gradlew 5.0+ (You can use Gradle Wrapper)
+- Gradle 5.0+ (You can use Gradle Wrapper)
 
 ### How to run?
 
@@ -21,11 +21,11 @@ You also can run this project just with Gradle:
 
 - For UNIX-based systems
 
-```./gradlew spring-boot:run```
+```./gradlew bootRun```
 
 - For Windows
 
-```gradlew spring-boot:run```
+```gradlew bootRun```
 
 #### Test
 
@@ -53,7 +53,7 @@ This project was built with the following stack of technologies:
 - PostgreSQL
 - Jackson
 - Lombok
-- Spring Boot (Actuator, Data JPA, , Security, Tests, Web)
+- Spring Boot (Actuator, Data JPA, Security, Tests, Web)
 - Swagger
 
 ### License
